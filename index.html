@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Shopping List App</title>
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+          
+     <div id="shopping-list">
+          
+          <h1>{{ header.toLocaleUpperCase() }}</h1>
+          <!-- <h1>{{ header ? header: "welcome" }}</h1> -->
+          <input type="text" v-model="header">
+
+          <!-- below is how you loop over an item in vue -->
+          <ul>
+               <li v-for="item in items">
+                    {{ item }}
+               </li>
+          </ul>
+
+          <input type="text" v-model="newItem" placeholder="Add an item">
+     </div>
+     
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+     <script>
+          var shoppingList = new Vue ({
+               el: "#shopping-list",
+               data: {
+                    // header: 'Vue is ready to party!'
+                    header: "Shopping List App",
+                    newItem: "",
+                    items: [
+                         '10 party hats',
+                         '2 board games',
+                         '20 cups',
+                    ]
+               }
+          });
+     </script>
+    
+</body>
+</html>
