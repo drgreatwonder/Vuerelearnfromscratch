@@ -22,7 +22,14 @@
                </li>
           </ul>
 
-          <input type="text" v-model="newItem" placeholder="Add an item">
+          <!-- <input type="text" v-model="newItem" placeholder="Add an item" v-on:keyup.enter="items.push(newItem)">
+          <button v-on:click="items.push(newItem)">Save Items</button> -->
+
+          <!--Below we replace v-on: with the @symbol-->
+          
+          <input type="text" v-model="newItem" placeholder="Add an item" @keyup.enter="items.push(newItem)">
+          <button @click="items.push(newItem)">Save Items</button>
+
      </div>
      
      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
