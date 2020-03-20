@@ -27,8 +27,13 @@
 
           <!--Below we replace v-on: with the @symbol-->
           
-          <input type="text" v-model="newItem" placeholder="Add an item" @keyup.enter="items.push(newItem)">
-          <button @click="items.push(newItem)">Save Items</button>
+          <!-- <input type="text" v-model="newItem" placeholder="Add an item" @keyup.enter="items.push(newItem)">
+          <button @click="items.push(newItem)">Save Items</button> -->
+
+          <!--Below we want to replace our event action with the method saveItem-->
+
+          <input type="text" v-model="newItem" placeholder="Add an item" @keyup.enter="saveItem">
+          <button @click="saveItem">Save Items</button>
 
      </div>
      
@@ -46,6 +51,14 @@
                          '2 board games',
                          '20 cups',
                     ]
+               },
+               methods: {
+                    //here we define the method object or add methods that encapsulates specific functionality for our view instance. This is where we save our JavaScript logic
+                    saveItem: function() {
+
+                         this.items.push(this.newItem);
+                         this.newItem = '';
+                    }
                }
           });
      </script>
