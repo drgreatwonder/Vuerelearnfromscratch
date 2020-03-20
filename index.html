@@ -11,10 +11,21 @@
           
      <div id="shopping-list">
           
-          <h1>{{ header.toLocaleUpperCase() }}</h1>
-          <!-- <h1>{{ header ? header: "welcome" }}</h1> -->
-          <input type="text" v-model="header">
+          <!--making a button to wrap our form div then toggle using v-if and v-else-->
+          <div>
+               
+               <h1>{{ header.toLocaleUpperCase() }}</h1>
+               <button v-if="state = 'default'" @click="changeState('edit')">Add items</button>
 
+               <button v-else @click="changeState('default')">Cancel</button>
+          </div>
+          <!-- <div v-if="state === 'edit' "> -->
+               <div v-if="state === 'edit' " class="">
+          <!-- <h1>{{ header ? header: "welcome" }}</h1> -->
+          <!-- <input type="text" v-model="header"> -->
+               <input type="text" v-model="newItem" placeholder="Add an item" @keyup.enter="saveItem">
+               <button @click="saveItem">Save Items</button>
+          </div>
           <!-- below is how you loop over an item in vue -->
           <ul>
                <li v-for="item in items">
@@ -32,8 +43,10 @@
 
           <!--Below we want to replace our event action with the method saveItem-->
 
-          <input type="text" v-model="newItem" placeholder="Add an item" @keyup.enter="saveItem">
-          <button @click="saveItem">Save Items</button>
+          
+
+          <!--let's now do a conditional rendering-->
+          <p v-if="items.length === 0">Nice job, you bought all the items</p>
 
      </div>
      
@@ -43,13 +56,15 @@
           var shoppingList = new Vue ({
                el: "#shopping-list",
                data: {
+                    //we use state to manage(toggle)
+                    state: "default",
                     // header: 'Vue is ready to party!'
                     header: "Shopping List App",
                     newItem: "",
                     items: [
-                         '10 party hats',
-                         '2 board games',
-                         '20 cups',
+                         // '10 party hats',
+                         // '2 board games',
+                         // '20 cups',
                     ]
                },
                methods: {
@@ -57,6 +72,11 @@
                     saveItem: function() {
 
                          this.items.push(this.newItem);
+                         this.newItem = '';
+                    },
+
+                    changeState: function(newState){
+                         this.state = newState;
                          this.newItem = '';
                     }
                }
