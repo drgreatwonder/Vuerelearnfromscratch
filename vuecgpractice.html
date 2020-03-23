@@ -16,9 +16,14 @@
         <br>
         <br>
 
-        <button v-on:click="increase">Click me</button>
+        <button v-on:click="increase(2, $event)">Click me</button>
         <p>{{ counter }}</p>
-        <p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}</p>
+        <p v-on:mousemove="updateCoordinates">
+            Coordinates: {{ x }} / {{ y }}
+            -<span v-on:mousemove.stop.prevent="">DEAD SPOT</span>
+            <!--i want to use an event modifier above-->
+            <!-- <span v-on:mousemove="dummy">DEAD SPOT</span> -->
+        </p>
     </div>
 
 
@@ -60,9 +65,14 @@
                     this.y = event.clientY;
                 },
 
-                increase: function(){
-                    this.counter++;
-                }
+                increase: function(step, event){
+                    // this.counter++;
+                    this.counter+=step;
+                },
+
+                // dummy: function(event){
+                //     event.stopPropagation();
+                // }
             }
         });
     </script>
