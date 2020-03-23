@@ -31,6 +31,16 @@
         <br>
         <input type="text" v-model="name">
         <p>{{ name }}</p>
+        <br>
+        <hr>
+        <br>
+        <!-- <button v-on:click="increase">Increase</button>
+        <button v-on:click="decrease">Decrease</button> -->
+        <button v-on:click="counter++">Increase</button>
+        <button v-on:click="counter--">Decrease</button>
+        <button v-on:click="secondCounter++">Increase Second</button>
+        <p>Counter: {{ counter }}</p>
+        <p>Result: {{ result() }} | {{ output }}</p>
     </div>
 
 
@@ -53,10 +63,18 @@
                 link: "https://www.google.com",
                 finishedLink: '<a href="https://www.google.com">Google</a>',
                 counter: 0,
+                secondCounter: 0,
                 x: 0,
                 y: 0,
-                name: "Max"
+                name: "Max",
+                // result: ""
 
+            },
+
+            computed: {
+                output: function(){
+                    return this.counter > 5 ? "Greater 5" : "Smaller than 5";
+                }
             },
 
             methods: {
@@ -73,10 +91,21 @@
                     this.y = event.clientY;
                 },
 
-                increase: function(step, event){
-                    // this.counter++;
-                    this.counter+=step;
+                result: function() {
+                    return this.counter > 5 ? "Greater 5" : "Smaller than 5";
                 },
+
+                // increase: function(step, event){
+                //     this.counter++;
+                //     // this.counter+=step;
+                //     this.result = this.counter > 5 ? "Greater 5" : "Smaller 5"
+                // },
+
+                // decrease: function(step, event){
+                //     this.counter--;
+                //     // this.counter+=step;
+                //     this.result = this.counter > 5 ? "Greater 5" : "Smaller 5"
+                // },
 
                 // dummy: function(event){
                 //     event.stopPropagation();
