@@ -10,12 +10,24 @@
     <script src="vue.js"></script>
 
     <div id="app">
-        <p v-if="show">You can see me!</p>
+        <!-- <p v-if="show">You can see me!</p> -->
+        <!--in a case of nested elements, it removes everything like below-->
+        <p v-if="show">You can see me! <span>Hello!</span></p>
         <p v-else>Now you can see me!</p>
         <p>Do you also see me?</p>
       
-
         <button @click="show = !show">Switch</button>
+
+        <br>
+        <br>
+
+        <ul>
+            <li v-for="ingredient in ingredients">
+                {{ ingredient }}
+            </li>
+        </ul>
+
+
     </div>
 
 
@@ -35,7 +47,12 @@
             el: "#app",
 
             data: {
-                show: true
+                show: true,
+                ingredients: ['meat', 'fruit', 'cookies'],
+                persons: [
+                    {name: 'Max', age: 27, color: 'red'},
+                    {name: 'Anna', age: 'unknown', color: 'blue'}
+                ]
             }
         })
     </script>
