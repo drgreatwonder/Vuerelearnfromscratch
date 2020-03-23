@@ -52,6 +52,12 @@
         <div class="demo" @click="attachRed = !attachRed" :class="{red: attachRed}"></div>
         <div class="demo" @click="attachGreen = !attachGreen" :class="{green: attachGreen}"></div>
         <div class="demo" @click="attachBlue = !attachBlue" :class="{blue: attachBlue}"></div>
+        <hr>
+        <hr>
+        <!-- <div class="demo" :class="color"></div> -->
+        <!--we could make our color above into an array-->
+        <div class="demo" :class="[color, {red: attachGreen}]"></div>
+        <input type="text" v-model="color">
     </div>
 
 
@@ -81,7 +87,8 @@
                 // result: ""
                 attachRed: false,
                 attachGreen: false,
-                attachBlue: false
+                attachBlue: false,
+                color: "green"
 
             },
 
