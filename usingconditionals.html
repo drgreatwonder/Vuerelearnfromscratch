@@ -31,6 +31,9 @@
             <li v-for="(ingredient, i) in ingredients">
                 {{ ingredient }} ({{ i }})
             </li>
+
+            <!--updating values-->
+            <button @click="ingredients.push('spices')">Add New</button>
             
         </ul>
 
@@ -58,7 +61,16 @@
             </li>
         </ul>
         <hr>
+        <br>
+        <br>
+        <hr>
+        <!--to loop through numbers-->
+        <span v-for="n in 10">{{ n }}</span>
+        <hr>
+<!-- 
+        <hr>
 
+        <hr> -->
 
     </div>
 
