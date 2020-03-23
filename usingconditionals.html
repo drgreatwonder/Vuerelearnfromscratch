@@ -40,6 +40,25 @@
             <p>{{ index }}</p>
         </template>
 
+        <br>
+        <hr>
+        <ul>
+            <!-- <li v-for="person in persons">
+                {{ person.name }}
+            </li> -->
+
+            <!--below, we want to get the values age and color-->
+            <!-- <li v-for="person in persons">
+                <span v-for="value in person">{{ value }}</span>
+            </li> -->
+
+            <!--a more neater way to carry out the above will be:-->
+            <li v-for="person in persons">
+                <div v-for="(value, key, index) in person">{{ key }}: {{ value }} ({{ index }})</div>
+            </li>
+        </ul>
+        <hr>
+
 
     </div>
 
