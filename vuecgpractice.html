@@ -10,7 +10,9 @@
 
     <div id="app">
         <h1 v-once>{{title}}</h1>
-        <p>{{ sayHello() }}- <a v-bind:href="link">Google</a></p>
+        <!-- <a>{{ sayHello() }}- <a v-bind:href="link">Google</a></p> -->
+        <!--You can use shorthand for v-bind which is @-->
+        <p>{{ sayHello() }}- <a :href="link">Google</a></p>
         <hr>
         <p v-html="finishedLink"></p>
         <br>
@@ -27,6 +29,8 @@
             <!-- <span v-on:mousemove="dummy">DEAD SPOT</span> -->
         </p>
         <input type="text" v-on:keyup.enter.space="alertMe">
+        <!--You can use shorthand for v-on: which is @-->
+        <!-- <input type="text" @keyup.enter.space="alertMe"> -->
         <br>
         <br>
         <input type="text" v-model="name">
