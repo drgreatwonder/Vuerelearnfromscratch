@@ -25,6 +25,12 @@
             <li v-for="ingredient in ingredients">
                 {{ ingredient }}
             </li>
+            <br>
+            <br>
+            <!--To iterate through an array and also get it's index-->
+            <li v-for="(ingredient, i) in ingredients">
+                {{ ingredient }} ({{ i }})
+            </li>
         </ul>
 
 
