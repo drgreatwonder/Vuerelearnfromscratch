@@ -24,6 +24,7 @@
             <!--i want to use an event modifier above-->
             <!-- <span v-on:mousemove="dummy">DEAD SPOT</span> -->
         </p>
+        <input type="text" v-on:keyup.enter.space="alertMe">
     </div>
 
 
@@ -73,6 +74,10 @@
                 // dummy: function(event){
                 //     event.stopPropagation();
                 // }
+
+                alertMe: function(event) {
+                    alert('alert');
+                }
             }
         });
     </script>
