@@ -31,7 +31,14 @@
             <li v-for="(ingredient, i) in ingredients">
                 {{ ingredient }} ({{ i }})
             </li>
+            
         </ul>
+
+        <!--you could also loop through using the template tag-->
+        <template v-for="(ingredient, index) in ingredients">
+            <h1>{{ ingredient }} </h1>
+            <p>{{ index }}</p>
+        </template>
 
 
     </div>
