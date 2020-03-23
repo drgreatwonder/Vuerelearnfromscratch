@@ -53,11 +53,21 @@
         <div class="demo" @click="attachGreen = !attachGreen" :class="{green: attachGreen}"></div>
         <div class="demo" @click="attachBlue = !attachBlue" :class="{blue: attachBlue}"></div>
         <hr>
-        <hr>
+        <br>
         <!-- <div class="demo" :class="color"></div> -->
         <!--we could make our color above into an array-->
         <div class="demo" :class="[color, {red: attachGreen}]"></div>
         <input type="text" v-model="color">
+        <hr>
+        <br>
+        <div class="demo" :style="{backgroundColor: color}"></div>
+        <div class="demo"></div>
+        <div class="demo"></div>
+        <br>
+        <input type="text" v-model="color">
+        <input type="text" v-model="width">
+        <hr>
+
     </div>
 
 
@@ -88,13 +98,20 @@
                 attachRed: false,
                 attachGreen: false,
                 attachBlue: false,
-                color: "green"
+                color: "",
+                width: 100
 
             },
 
             computed: {
                 output: function(){
                     return this.counter > 5 ? "Greater 5" : "Smaller than 5";
+                },
+                myStyle: function() {
+                    return {
+                        backgroundColor: this.color,
+                        width: this.width + 'px'
+                    }
                 }
             },
 
